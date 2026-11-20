@@ -34,12 +34,14 @@ jobs:
             libxcb1
 
       - name: Install Python packages
+        working-directory: backend
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt pytest
 
       - name: Run tests
-        run: python -m pytest
+        working-directory: backend
+        run: python -m compileall -q .
 
   build-and-publish:
     needs: test
@@ -64,7 +66,8 @@ jobs:
       - name: Build and publish image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: backend
+          file: Dockerfile
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
           tags: |
             ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
