@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Next.js / Node.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.cache/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# General build and dependency caches
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# InsightFace model cache and temporary model downloads
+~/.insightface/
+backend/.insightface/
+backend/models/*.zip
+backend/models/*.tar
+backend/models/*.tar.gz
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Docker local overrides
+compose.override.yml
+compose.*.override.yml
+
+# Large ML model files (download or store these separately)
+*.onnx
